@@ -12,6 +12,8 @@ const limit = 12;
 
 interface Props {
   setNumberOfAllClicks: Dispatch<SetStateAction<number>>;
+  setReset: Dispatch<SetStateAction<boolean>>;
+  reset: boolean;
 }
 
 interface Url {
