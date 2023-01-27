@@ -8,8 +8,7 @@ export const Layout = () => {
 
   return (
     <div className="layout">
-      <PhotosView setNumberOfAllClicks={setNumberOfAllClicks} />
-      <Counter numberOfClicks={numberOfAllClicks} />
+      <Counter numberOfAllClicks={numberOfAllClicks} />
     </div>
   );
 };

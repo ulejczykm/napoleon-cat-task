@@ -1,11 +1,11 @@
 import "./style.css";
 
 interface Props {
-  numberOfClicks: number;
+  numberOfAllClicks: number;
 }
 
-export const Counter = ({ numberOfClicks }: Props) => (
+export const Counter = ({ numberOfAllClicks }: Props) => (
   <div className="counter">
-    <span className="number">{numberOfClicks}</span>
+    <span className="number">{numberOfAllClicks}</span>
   </div>
 );
