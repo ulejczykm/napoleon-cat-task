@@ -1,10 +1,10 @@
-import { PhotosView } from "components/PhotosView";
+import { Layout } from "components/Layout";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <PhotosView />
+      <Layout />
     </div>
   );
 }
