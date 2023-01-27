@@ -75,8 +75,6 @@ export const PhotosView = (props: Props) => {
     fetchPhotos();
   }, []);
 
-  console.log(data);
-
   return (
     <ul className="photosContainer">
       {data?.map(({ url }, i) => (
