@@ -8,7 +8,7 @@ import {
 } from "react";
 import "./style.css";
 
-const limit = 12;
+const photosLimit = 12;
 
 interface Props {
   setNumberOfAllClicks: Dispatch<SetStateAction<number>>;
@@ -43,7 +43,7 @@ export const PhotosView = (props: Props) => {
 
   useEffect(() => {
     (() => {
-      for (let i = 0; i < limit; i++) {
+      for (let i = 0; i < photosLimit; i++) {
         getColor();
       }
     })();
@@ -53,7 +53,7 @@ export const PhotosView = (props: Props) => {
     const fetchPhotos = async () => {
       try {
         const response = await fetch(
-          `https://picsum.photos/v2/list?limit=${limit}`
+          `https://picsum.photos/v2/list?limit=${photosLimit}`
         ).then((res) => {
           if (!res.ok) {
             throw new Error(
@@ -74,6 +74,8 @@ export const PhotosView = (props: Props) => {
 
     fetchPhotos();
   }, []);
+
+  console.log(data);
 
   return (
     <ul className="photosContainer">
