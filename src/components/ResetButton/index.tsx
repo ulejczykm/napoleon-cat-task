@@ -14,6 +14,7 @@ export const ResetButton = ({ setReset }: Props) => {
         style={{ backgroundColor: buttonPress ? "#3A9F9F" : "#30CCCC" }}
         onMouseDown={() => setButtonPress(true)}
         onMouseUp={() => setButtonPress(false)}
+        onMouseLeave={() => setButtonPress(false)}
         onClick={() => setReset(true)}
         className="button"
       >
