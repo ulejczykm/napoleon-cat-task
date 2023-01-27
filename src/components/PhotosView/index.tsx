@@ -1,8 +1,18 @@
 import { Photo } from "components/Photo";
-import { useEffect, useState, useCallback } from "react";
+import {
+  useEffect,
+  useState,
+  useCallback,
+  Dispatch,
+  SetStateAction,
+} from "react";
 import "./style.css";
 
 const limit = 12;
+
+interface Props {
+  setNumberOfAllClicks: Dispatch<SetStateAction<number>>;
+}
 
 interface Url {
   url: string;
@@ -16,7 +26,7 @@ interface Photo extends Url {
   id: string;
 }
 
-export const PhotosView = () => {
+export const PhotosView = (props: Props) => {
   const [data, setData] = useState<Url[] | []>([]);
   const [colors, setColors] = useState<string[]>([]);
 
@@ -66,7 +76,7 @@ export const PhotosView = () => {
   return (
     <ul className="photosContainer">
       {data?.map(({ url }, i) => (
-        <Photo borderColor={colors[i]} key={url} url={url} />
+        <Photo borderColor={colors[i]} key={url} url={url} {...props} />
       ))}
     </ul>
   );

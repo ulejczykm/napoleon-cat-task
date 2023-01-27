@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { Dispatch, SetStateAction, useCallback, useState } from "react";
 import "./style.css";
 
 interface Props {
@@ -6,14 +6,19 @@ interface Props {
   borderColor: string;
 }
 
+interface Props {
+  setNumberOfAllClicks: Dispatch<SetStateAction<number>>;
+}
+
 const limitOfClicks = 5;
 
-export const Photo = ({ url, borderColor }: Props) => {
+export const Photo = ({ url, borderColor, setNumberOfAllClicks }: Props) => {
   const [numberOfClicks, setNumberOfClicks] = useState<number>(0);
   const [randomPhotoId, setRandomPhotoId] = useState<number | null>(null);
 
   const onPhotoClick = useCallback(async () => {
     setNumberOfClicks((prev) => prev + 1);
+    setNumberOfAllClicks((prev) => prev + 1);
     setRandomPhotoId(Math.floor(Math.random() * 1000));
   }, []);
 
